@@ -1,35 +1,91 @@
-# Book Review API
+# BookReviewAPI
 
-A RESTful API built using Django REST Framework for managing books and reviews with JWT Authentication.
+Book Review API built using Django REST Framework (DRF).
 
----
-
-## Features
+## Project Features
 
 - User Registration
 - JWT Authentication
-- Book CRUD Operations
-- Review CRUD Operations
-- Rating Validation (1-5)
+- Change Password
+- Book Management
+- Review Management
 - Swagger Documentation
-- Permissions & Authentication
+- Admin Dashboard
 
 ---
 
 ## Technologies Used
 
-- Python
+- Python 3
 - Django
 - Django REST Framework
-- Simple JWT
-- drf-yasg
-- SQLite
+- Simple JWT Authentication
+- SQLite3
+- drf-yasg (Swagger)
 
 ---
 
-## Installation
+## API Endpoints
 
-Install dependencies:
+### Authentication
+
+| Method | Endpoint | Description |
+|--------|-----------|-------------|
+| POST | /api/register/ | Register new user |
+| POST | /api/token/ | Login and get JWT token |
+| POST | /api/token/refresh/ | Refresh token |
+| POST | /api/change-password/ | Change password |
+
+---
+
+### Books
+
+| Method | Endpoint | Description |
+|--------|-----------|-------------|
+| GET | /api/books/ | List all books |
+| POST | /api/books/ | Add new book (Admin only) |
+| GET | /api/books/<id>/ | Retrieve book details |
+| PUT | /api/books/<id>/ | Update book |
+| DELETE | /api/books/<id>/ | Delete book |
+
+---
+
+### Reviews
+
+| Method | Endpoint | Description |
+|--------|-----------|-------------|
+| GET | /api/books/<book_id>/reviews/ | Get all reviews |
+| POST | /api/books/<book_id>/reviews/ | Add review |
+| PUT | /api/reviews/<id>/ | Edit review |
+| DELETE | /api/reviews/<id>/ | Delete review |
+
+---
+
+## Authentication
+
+This project uses JWT Authentication.
+
+Login endpoint:
+
+POST /api/token/
+
+Use token in headers:
+
+Authorization: Bearer your_token
+
+---
+
+## Swagger Documentation
+
+Swagger UI:
+
+http://127.0.0.1:8000/swagger/
+
+---
+
+## How to Run the Project
+
+### 1. Clone Repository
 
 ```bash
-pip install -r requirements.txt
+git clone https://github.com/veved11/BookReviewAPI.git
